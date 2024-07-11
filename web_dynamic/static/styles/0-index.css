@@ -1,0 +1,185 @@
+body div.container {
+	display: flex;
+	height: 40px;
+	font-size: 12px;
+	width: 400px;
+	border: solid;
+	border-radius: 10px;
+	margin-left: 450px;
+	margin-right: 25%;
+	justify-content: space-between;
+	text-align: center;
+	align-items: center;
+}
+div.search {
+	font-weight: bold;
+	width: 90px;
+	height: 100%;
+	top: 10px;
+	position: relative;
+	cursor: pointer;
+}
+.dropdowns {
+	display: none;
+	position: absolute;
+	top: 75%;
+	left: 0;
+	background-color: white;
+	border: 1px solid #ccc;
+	box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+	z-index: 1;
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	width: 100px;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+div ul.dropdowns li {
+	padding: 8px 12px;
+	border: none;
+	margin: 0px;
+	width: 75px;
+	position: static; 
+	cursor: pointer;
+}
+.dropdowns li:hover {
+	background-color: #f1f1f1;
+}
+.search:hover .dropdowns {
+	display: block;
+}
+body header {
+	display: flex;
+	background-color: rgb(233, 91, 91);
+	border-bottom: 100%;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	position: relative;
+	height: 60px;
+}
+body {
+	margin: 0px;
+	padding: 0px;
+	/*background: url("./../images/back.png") no-repeat center center fixed;*/
+	/*background-size: cover;*/
+}
+body footer {
+	display: flex;
+	background-color: burlywood;
+	height: 60px;
+	border-bottom: 100%;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	position: relative;
+}
+button {
+	border-style: solid;
+	background-color: red;
+	border-radius: 5px;
+	border: 15px;
+	height: 75%;
+	margin: 5px 5px;
+	cursor: pointer;
+	border-color: white;
+}
+button:hover {
+	opacity: 0.5;
+}
+.search-input {
+	font-size: 18px;
+	color: grey;
+	background: transparent;
+	border: none;
+}
+h1 {
+	border-style: solid;
+	border-color: black;
+	border-radius: 20px;
+	margin-bottom: 20px;
+}
+ul.books li {
+	padding: 10px;
+	width: 650px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	list-style-type: none;
+	margin-left: 25%;
+	margin-right: 25%;
+	border-color: black;
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 10px;
+}
+a:visited {
+	background-color: cyan;
+}
+a:active {
+	color: hotpink;
+}
+a:hover {
+	color: black;
+	text-decoration: none;
+}
+ul li:hover {
+	border-color: white;
+	cursor: pointer;
+}
+li {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: 1px solid #ccc;
+}
+.text-container {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+}
+.icon {
+	font-size: 24px;
+	cursor: pointer;
+	margin-left: 10px;
+}
+ul.options li.view {
+	width: 100%;
+	border-radius: 0px;
+	border: none;
+	border-left: 0px;
+	padding-left: 0px;
+	margin: 0px;
+	position: static;
+	padding: 0px;
+}
+ul.options li.review {
+	width: 100%;
+	border-radius: 0px;
+	border: none;
+	border-left: 0px;
+	padding-left: 4px;
+	margin: 0px;
+	position: static;
+	padding: 0px;
+}
+ul.options li.update {
+	width: 100%;
+	border-radius: 0px;
+	border: none;
+	border-left: 0px;
+	padding-left: 4px;
+	margin: 0px;
+	position: static;
+	padding: 0px;
+}
+ul.options li.delete {
+	width: 100%;
+	border-radius: 0px;
+	border: none;
+	border-left: 0px;
+	padding-left: 4px;
+	margin: 0px;
+	position: static;
+	padding: 0px;
+}
