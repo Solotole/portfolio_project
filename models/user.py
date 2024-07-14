@@ -1,12 +1,11 @@
 #!/usr/bin/python3
 """ User module representation """
-from flask_login import UserMixin
 from models.base_model import Base, BaseModel
 from sqlalchemy import Column, String
 from sqlalchemy.orm import relationship
 
 
-class User(BaseModel, Base, UserMixin):
+class User(BaseModel, Base):
     """ User class-table mapping representation """
     __tablename__ = "users"
 
@@ -21,6 +20,3 @@ class User(BaseModel, Base, UserMixin):
     def __init__(self, *args, **kwargs):
         """ initialization method of class User"""
         super().__init__(*args, **kwargs)
-
-    def get_id(self):
-        return str(self.id)

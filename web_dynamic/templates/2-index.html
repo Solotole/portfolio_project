@@ -3,47 +3,20 @@
 	<head>
 		<title></title>
 		<meta charset="utf-8">
-		<link rel="icon" href="imageslink rel="stylesheet" href="./styles/2-index.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="./../static/styles/0-index.css?cache_id={{ cache_id }}">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+		<script src="../static/scripts/recommendations.js" defer></script>
+		<script src="../static/scripts/updatereviews.js" defer></script>
+		<script src="../static/scripts/viewreviews.js" defer></script>
+		<script src="../static/scripts/review.js" defer></script>
+		<script src="../static/scripts/deletereview.js" defer></script>
 	</head>
 	<body>
 		<header>Recommendations</header>
-		<ul>
-			<li>
-				<div class="text-container">
-					<span>title: Caucian chalk circle</span>
-					<span>author: Lusaka</span>
-					<span>genre: short stories</span>
-				</div>
-				<i class="fa fa-ellipsis-v icon"></i>
-			</li>
-			<li>
-				<div class="text-container">
-					<span>title: msatahki meya</span>
-					<span>author: Walibora</span>
-					<span>genre: swahili</span>
-				</div>
-				<i class="fa fa-ellipsis-v icon"></i>
-			</li>
-			<li>
-				<div class="text-container">
-					<span>title: Kidaga kimemwozea</span>
-					<span>author: Maji marefu</span>
-					<span>genre: reject not ammend</span>
-				</div>
-				<i class="fa fa-ellipsis-v icon"></i>
-			</li>
-			<li>
-				<div class="text-container">
-					<span>title: The river between</span>
-					<span>author: wa Thiong'o</span>
-					<span>genre: ngoso</span>
-				</div>
-			        <i class="fa fa-ellipsis-v icon"></i>
-			</li>
+		<ul class="books" data-user-id="{{ user_id }}">
 		</ul>
 		<footer>
 			<p>BRRS</p>
 		</footer>
 	</body>
-</htm
+</html>

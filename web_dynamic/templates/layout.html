@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>{% block title %}{% endblock %}</title>
+		<title>BRRS</title>
 		<link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
 	</head>
@@ -13,6 +13,8 @@
                 <a href="{{ url_for('home') }}"><i class="fas fa-home"></i>Home</a>
 				<a href="{{ url_for('profile') }}"><i class="fas fa-user-circle"></i>Profile</a>
 				<a href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i>Logout</a>
+				<a href="{{ url_for('brrs') }}">Books</a>
+				<a href="{{ url_for('recommendations') }}">Recommendations</a>
 			</div>
 		</nav>
 		<div class="content">

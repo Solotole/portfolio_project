@@ -77,3 +77,14 @@ class DBStorage:
             if keys == key:
                 return all_dicts[keys]
         return None
+
+    def user_reviews(self, id_user):
+        """ retrieving user's reviews with rating above 5 """
+        only_user_reviews = []
+        reviews = self.all(Review).values()
+        for review in reviews:
+            if review.user_id == id_user and review.rating >= 5:
+                only_user_reviews.append(review)
+            elif (review.user_id == id_user and review.rating < 5):
+                only_user_reviews.append(review)
+        return only_user_reviews

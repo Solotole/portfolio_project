@@ -21,6 +21,7 @@ def retrieving_book_reviews(book_id):
 @app_views.route('/books/<user_id>/<book_id>/reviews', methods=['POST'], strict_slashes=False)
 def posting_review(user_id, book_id):
     """ posting a new review comment to a book """
+    s = '%Y-%m-%dT%H:%M:%S.%f'
     new_comment = {}
     data = request.get_json()
     if not request.get_json():
@@ -34,19 +35,21 @@ def posting_review(user_id, book_id):
     new_comment = {
             "text": comment,
             "rating": rate,
-            "user_id": user_id,
+            "user_id": user_id[0:-1],
             "book_id": book_id
             }
-    instance = Review(**new_comment)
-    instance.save()
-    return make_response(jsonify(instance.to_dict()), 201)
+    review = Review(**new_comment)
+    storage.new(review)
+    storage.save()
+    return make_response(jsonify(review.to_dict()), 201)
 
 
-@app_views.route('/reviews/<review_id>', methods=['PUT'], strict_slashes=False)
-def updating_review(review_id):
+@app_views.route('/reviews/<review_id>/<id_user>', methods=['PUT'], strict_slashes=False)
+def updating_review(review_id, id_user):
     """ updating a comment """
     instance = storage.get(Review, review_id)
-    ignore = ['id', 'created_at', 'updated_at', 'user_id', 'book_id']
+    print(id_user)
+    ignore = ['id', 'created_at', 'updated_at', 'book_id']
     data = request.get_json()
     if not request.get_json():
         abort(400, description="zero request data")
@@ -57,18 +60,19 @@ def updating_review(review_id):
     if 'rating' not in data:
         abort(400, description="no rating argument in request")
     for key, value in data.items():
-        if key not in ignore:
+        if key not in ignore and instance.user_id == id_user:
             setattr(instance, key, value)
     new_instance = Review(instance)
     storage.save()
     return make_response(jsonify(new_instance.to_dict()), 200)
 
 
-@app_views.route('/reviews/<review_id>', methods=['DELETE'], strict_slashes=False)
-def delete_reviews(review_id):
+@app_views.route('/reviews/<review_id>/<id_user>', methods=['DELETE'], strict_slashes=False)
+def delete_reviews(review_id, id_user):
     """ deleting a review """
+    print(id_user)
     review = storage.get(Review, review_id)
-    if review:
+    if review and review.user_id == id_user:
         storage.delete(review)
         storage.save()
     return make_response(jsonify({}), 200)

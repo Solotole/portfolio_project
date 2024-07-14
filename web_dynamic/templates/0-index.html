@@ -4,12 +4,16 @@
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="./../static/styles/0-index.css?cache_id={{ cache_id }}">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-		<script src="../static/scripts/0-books.js" defer></script>
+		<script src="../static/scripts/allbooks.js" defer></script>
+		<script src="../static/scripts/updatereviews.js" defer></script>
+		<script src="../static/scripts/viewreviews.js" defer></script>
+		<script src="../static/scripts/review.js" defer></script>
+		<script src="../static/scripts/deletereview.js" defer></script>
 	</head>
 	<body>
 		<header>Books</header>
 		<div class="container">
-			<div class="search">Constraints
+			<div class="search">Filter
 				<ul class="dropdowns">
 					<li>Book title</li>
 					<li>Author</li>
@@ -18,8 +22,7 @@
 			</div>
 			<button>Search</button>
 		</div>
-		<a href="./2-index.html">Recommendations</a>
-		<ul class="books">
+		<ul class="books" data-user-id="{{ user_id }}">
 		</ul>
 		<footer>
 			<p>BRRS</p>

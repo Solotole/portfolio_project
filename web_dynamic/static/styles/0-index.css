@@ -51,7 +51,7 @@ div ul.dropdowns li {
 }
 body header {
 	display: flex;
-	background-color: rgb(233, 91, 91);
+	background-color: #435165;
 	border-bottom: 100%;
 	justify-content: center;
 	align-items: center;
@@ -67,7 +67,7 @@ body {
 }
 body footer {
 	display: flex;
-	background-color: burlywood;
+	border-top: solid;
 	height: 60px;
 	border-bottom: 100%;
 	justify-content: center;

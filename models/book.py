@@ -15,3 +15,7 @@ class Book(BaseModel, Base):
 
     reviews = relationship('Review', back_populates='book',
                            cascade="all, delete, delete-orphan")
+
+    def __init__(self, *args, **kwargs):
+        """ Book class initialization special method """
+        super().__init__(*args, **kwargs)
