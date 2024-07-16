@@ -86,8 +86,6 @@ class DBStorage:
         for review in reviews:
             if review.user_id == id_user and review.rating >= 5:
                 only_user_reviews.append(review)
-            # elif (review.user_id == id_user and review.rating < 5):
-            # only_user_reviews.append(review)
         return only_user_reviews
 
     def get_read_books(self, user_id):

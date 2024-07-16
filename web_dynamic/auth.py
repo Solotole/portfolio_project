@@ -153,24 +153,28 @@ def profile():
 @app.route('/brrs', strict_slashes=False)
 def brrs():
     """ retriveing all books and rendering html """
-    books = {}
-    cache_id = uuid4()
-    books = storage.all(Book).values()
-    # render html page with books data and user's id
-    return render_template('0-index.html',
-                           books=books,
-                           cache_id=cache_id,
-                           user_id=session['id'])
+    if 'loggedin' in session:
+        books = {}
+        cache_id = uuid4()
+        books = storage.all(Book).values()
+        # render html page with books data and user's id
+        return render_template('0-index.html',
+                                books=books,
+                                cache_id=cache_id,
+                                user_id=session['id'])
+    return redirect(url_for('login'))
 
 
 @app.route('/recommendations', strict_slashes=False)
 def recommendations():
     """ recommendations according to user's reviews and rating """
-    cache_id = uuid4()
-    # render html page with books data and user's id
-    return render_template('2-index.html',
-                           cache_id=cache_id,
-                           user_id=session['id'])
+    if 'loggedin' in session:
+        cache_id = uuid4()
+        # render html page with books data and user's id
+        return render_template('2-index.html',
+                                cache_id=cache_id,
+                                user_id=session['id'])
+    return redirect(url_for('login'))
 
 
 if __name__ == '__main__':
