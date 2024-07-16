@@ -10,4 +10,9 @@
     <p>Last name: {{ account['last_name']}}</p>
     <p>Email: {{ account['email']}}</p>
 </div>
+<div class="read-books">
+    <h2>Books I've Read</h2>
+    <ul class="read-books-list" data-user-id="{{ account['id'] }}">
+    </ul>
+</div>
 {% endblock %}

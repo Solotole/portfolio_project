@@ -7,9 +7,10 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 from models.user import User
 from models.base_model import Base
+from models.booksread import UserBook
 
 
-classes = {'User': User, 'Review': Review, 'Book': Book}
+classes = {'User': User, 'Review': Review, 'Book': Book, 'UserBook': UserBook}
 
 
 class DBStorage:
@@ -85,6 +86,19 @@ class DBStorage:
         for review in reviews:
             if review.user_id == id_user and review.rating >= 5:
                 only_user_reviews.append(review)
-            elif (review.user_id == id_user and review.rating < 5):
-                only_user_reviews.append(review)
+            # elif (review.user_id == id_user and review.rating < 5):
+            # only_user_reviews.append(review)
         return only_user_reviews
+
+    def get_read_books(self, user_id):
+        """ Retrieve all books a user has read """
+        read_books = []
+        all_user_books = self.all(UserBook)
+        print(all_user_books)
+        all_books = self.all(Book).values()
+        for user_book in all_user_books.values():
+            for book in all_books:
+                if user_book.user_id == user_id and book.id == user_book.book_id:
+                    read_books.append(book)
+        return read_books
+

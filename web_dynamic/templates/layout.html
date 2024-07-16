@@ -3,8 +3,41 @@
 	<head>
 		<meta charset="utf-8">
 		<title>BRRS</title>
+		<link rel="icon" href="./../static/images/icon.png">
 		<link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+		<script src="{{ url_for('static', filename='scripts/allmarkedbooks.js') }}"></script>
+		<style>
+			ul.read-books-list li {
+				padding: 10px;
+				width: 650px;
+				margin-top: 10px;
+				margin-bottom: 10px;
+				list-style-type: none;
+				margin-left: 10%;
+				margin-right: 25%;
+				border-color: black;
+				border-style: solid;
+				border-width: 1px;
+				border-radius: 10px;
+				box-sizing: border-box; 
+			}
+			ul.read-books-list li:hover {
+				border-color: white;
+				cursor: pointer;
+			}
+			li {
+				display: block;
+				justify-content: space-between;
+				align-items: center;
+				border-bottom: 1px solid #ccc;
+			}
+			.read-books {
+        		display: flex;
+        		flex-direction: column;
+    		}
+		</style>
 	</head>
 	<body class="loggedin">
 		<nav class="navtop">

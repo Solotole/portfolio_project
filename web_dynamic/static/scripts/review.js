@@ -1,6 +1,6 @@
 function addingUserComment(userId, bookId, addingData) {
     $.ajax({
-      url: `http://127.0.0.1:5001/api/v1/books/${userId}>/${bookId}/reviews`,
+      url: `http://127.0.0.1:5001/api/v1/books/${userId}/${bookId}/reviews`,
       type: 'POST',
       contentType: 'application/json',
       data: JSON.stringify(addingData),

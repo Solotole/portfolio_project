@@ -8,3 +8,4 @@ from api.v1.views.index import *
 from api.v1.views.books import *
 from api.v1.views.reviews import *
 from api.v1.views.recommendations import *
+from api.v1.views.userbooks import *

@@ -21,7 +21,6 @@ def retrieving_book_reviews(book_id):
 @app_views.route('/books/<user_id>/<book_id>/reviews', methods=['POST'], strict_slashes=False)
 def posting_review(user_id, book_id):
     """ posting a new review comment to a book """
-    s = '%Y-%m-%dT%H:%M:%S.%f'
     new_comment = {}
     data = request.get_json()
     if not request.get_json():
@@ -35,7 +34,7 @@ def posting_review(user_id, book_id):
     new_comment = {
             "text": comment,
             "rating": rate,
-            "user_id": user_id[0:-1],
+            "user_id": user_id,
             "book_id": book_id
             }
     review = Review(**new_comment)

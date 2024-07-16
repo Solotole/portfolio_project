@@ -26,35 +26,36 @@ def book_id_retrieval(book_id):
             all_book.append(value.to_dict())
     return jsonify(all_book)
 
-@app_views.route('/books/genre/<genre>', methods=['GET'], strict_slashes=False)
-def genre_book_search(genre):
+@app_views.route('/books/genre/<term>', methods=['GET'], strict_slashes=False)
+def genre_book_search(term):
     """ searching and reaturning book acoording to passed identity """
     all_books = storage.all(Book)
     book = []
+    print(all_books)
     if all_books:
         for key, value in all_books.items():
-            if value.genre == str(genre):
-                book.append(value.to_dict())
-    return book
+            if value.genre == str(term):
+                book.append(value)
+    return jsonify(book)
 
-@app_views.route('/books/author/<author>', methods=['GET'], strict_slashes=False)
-def author_book_search(author):
+@app_views.route('/books/author/<term>', methods=['GET'], strict_slashes=False)
+def author_book_search(term):
     """ searching for books according to author name """
     all_books = storage.all(Book)
     book = []
     if all_books:
         for key, value in all_books.items():
-            if value.author == str(author):
+            if value.author == str(term):
                 book.append(value.to_dict())
-    return book
+    return jsonify(book)
 
-@app_views.route('/books/name/<name>', methods=['GET'], strict_slashes=False)
-def name_book_search(name):
+@app_views.route('/books/name/<term>', methods=['GET'], strict_slashes=False)
+def name_book_search(term):
     """ searching for books according to book name """
     all_books = storage.all(Book)
     book = []
     if all_books:
         for key, value in all_books.items():
-            if value.name == str(name):
+            if value.name == str(term):
                 book.append(value.to_dict())
-    return book
+    return jsonify(book)

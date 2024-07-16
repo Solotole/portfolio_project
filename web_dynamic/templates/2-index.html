@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title></title>
+		<title>BRRS</title>
 		<meta charset="utf-8">
+		<link rel="icon" href="./../static/images/icon.png?cache_id={{ cache_id }}">
 		<link rel="stylesheet" href="./../static/styles/0-index.css?cache_id={{ cache_id }}">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 		<script src="../static/scripts/recommendations.js" defer></script>
@@ -12,7 +13,11 @@
 		<script src="../static/scripts/deletereview.js" defer></script>
 	</head>
 	<body>
-		<header>Recommendations</header>
+		<header>
+			<img src="./../static/images/icon.png" class="header-image">
+			<h3>BRRS</h3>
+			<p>Recommendations</p>
+		</header>
 		<ul class="books" data-user-id="{{ user_id }}">
 		</ul>
 		<footer>

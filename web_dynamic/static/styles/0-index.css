@@ -6,10 +6,33 @@ body div.container {
 	border: solid;
 	border-radius: 10px;
 	margin-left: 450px;
+	margin-top: 10px;
 	margin-right: 25%;
 	justify-content: space-between;
 	text-align: center;
 	align-items: center;
+}
+.mark-read {
+	width: 50px;
+}
+header h3 {
+	color: white;
+}
+.search-input {
+    font-size: 18px;
+    color: grey;
+    background: transparent;
+    border: none;
+}
+.header-image {
+	height: 70%;
+	margin-right: 20px;
+	margin-left: 10px;
+}
+header p {
+    margin: 0;
+    flex-grow: 1;
+    text-align: center;
 }
 div.search {
 	font-weight: bold;
@@ -53,9 +76,9 @@ body header {
 	display: flex;
 	background-color: #435165;
 	border-bottom: 100%;
-	justify-content: center;
+	/* justify-content: space-between; */
 	align-items: center;
-	text-align: center;
+	padding: 0 20px;
 	position: relative;
 	height: 60px;
 }
@@ -112,16 +135,6 @@ ul.books li {
 	border-style: solid;
 	border-width: 1px;
 	border-radius: 10px;
-}
-a:visited {
-	background-color: cyan;
-}
-a:active {
-	color: hotpink;
-}
-a:hover {
-	color: black;
-	text-decoration: none;
 }
 ul li:hover {
 	border-color: white;

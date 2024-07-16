@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<title>BRRS</title>
 		<meta charset="utf-8">
+		<link rel="icon" href="./../static/images/icon.png?cache_id={{ cache_id }}">
 		<link rel="stylesheet" href="./../static/styles/0-index.css?cache_id={{ cache_id }}">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 		<script src="../static/scripts/allbooks.js" defer></script>
@@ -9,18 +11,24 @@
 		<script src="../static/scripts/viewreviews.js" defer></script>
 		<script src="../static/scripts/review.js" defer></script>
 		<script src="../static/scripts/deletereview.js" defer></script>
+		<script src="../static/scripts/userbooks.js" defer></script>
 	</head>
 	<body>
-		<header>Books</header>
+		<header>
+			<img src="./../static/images/icon.png" class="header-image">
+			<h3>BRRS</h3>
+			<p>Books</p>
+		</header>
 		<div class="container">
 			<div class="search">Filter
 				<ul class="dropdowns">
-					<li>Book title</li>
-					<li>Author</li>
-					<li>Genre</li>
+					<li><input type="radio" id="search-genre" name="search-criteria" value="title">Title</li>
+					<li><input type="radio" id="search-author" name="search-criteria" value="author">Author</li>
+					<li><input type="radio" id="search-title" name="search-criteria" value="genre">Genre</li>
 				</ul>
 			</div>
-			<button>Search</button>
+			<input id="search-input" type="search" name="search-input" placeholder="search entry">
+			<button id="search-btn">Search</button>
 		</div>
 		<ul class="books" data-user-id="{{ user_id }}">
 		</ul>
