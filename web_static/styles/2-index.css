@@ -1,0 +1,76 @@
+body h1 {
+	font-size: 1px;
+}
+body header {
+	display: flex;
+	background-color: rgb(233, 91, 91);
+	border-bottom: 100%;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	position: relative;
+	height: 60px;
+}
+a:visited {
+	background-color: cyan;
+}
+a:active {
+	color: hotpink;
+}
+a:hover {
+	color: black;
+	text-decoration: none;
+}
+body {
+	margin: 0px;
+	padding: 0px;
+	/* background: url("./../images/back.png") no-repeat center center fixed; */
+	/* background-size: cover; */
+}
+body footer {
+	display: flex;
+	background-color: burlywood;
+	height: 60px;
+	border-bottom: 100%;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	position: relative;
+}
+button {
+	border-style: solid;
+	background-color: red;
+	border-radius: 10px;
+	border-bottom: 5px;
+	border-color: white;
+}
+li {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px;
+	border-bottom: 1px solid #ccc;
+}
+.text-container {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+}
+.icon {
+	font-size: 24px;
+	cursor: pointer;
+	margin-left: 10px;
+}
+ul li {
+	padding: 10px;
+	width: 650px;
+	list-style-type: none;
+	margin: 10px 200px;
+	border-color: black;
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 10px;
+}
+ul li:hover {
+	border-color: white;
+}
