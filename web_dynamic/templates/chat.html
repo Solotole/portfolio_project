@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>BRRS</title>
+    <link rel="icon" href="{{ url_for('static', filename='images/icon.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/chat.css') }}"">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='scripts/chat.js') }}"></script>
+</head>
+<body>
+    <header>
+    </header>
+    <div class="chat-window" data-user-id="{{ user_id }}">
+        <div class="messages" id="chat-messages"></div>
+        <input type="text" id="chat-input" placeholder="Type your message">
+        <button id="send-button">Send</button>
+    </div>
+</body>
+</html>

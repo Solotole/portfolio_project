@@ -9,8 +9,10 @@ import MySQLdb.cursors
 import hashlib
 from models.user import User
 from models import storage
+from web_dynamic.chat import chat_bp
 
 app = Flask(__name__)
+app.register_blueprint(chat_bp, url_prefix='/chat')
 
 app.secret_key = 'brrs portfolio project'
 
@@ -132,6 +134,7 @@ def home():
         # User is loggedin show them the home page
         first_name = session['first_name']
         last_name = session['last_name']
+        id = session['id']
         username = first_name + ' ' + last_name
         return render_template('home.html', username=username)
     # User is not loggedin redirect to login page

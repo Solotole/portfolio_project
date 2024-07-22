@@ -28,14 +28,13 @@ def book_id_retrieval(book_id):
 
 @app_views.route('/books/genre/<term>', methods=['GET'], strict_slashes=False)
 def genre_book_search(term):
-    """ searching and reaturning book acoording to passed identity """
+    """ searching and returning book acoording to passed genre identity """
     all_books = storage.all(Book)
     book = []
-    print(all_books)
     if all_books:
         for key, value in all_books.items():
             if value.genre == str(term):
-                book.append(value)
+                book.append(value.to_dict())
     return jsonify(book)
 
 @app_views.route('/books/author/<term>', methods=['GET'], strict_slashes=False)

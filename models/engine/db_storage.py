@@ -8,9 +8,10 @@ from sqlalchemy.orm import scoped_session, sessionmaker
 from models.user import User
 from models.base_model import Base
 from models.booksread import UserBook
+from models.chatmessages import ChatMessage
 
 
-classes = {'User': User, 'Review': Review, 'Book': Book, 'UserBook': UserBook}
+classes = {'User': User, 'Review': Review, 'Book': Book, 'UserBook': UserBook, 'ChatMessage': ChatMessage}
 
 
 class DBStorage:

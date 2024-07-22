@@ -7,6 +7,7 @@
 		<link rel="stylesheet" href="./../static/styles/0-index.css?cache_id={{ cache_id }}">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 		<script src="../static/scripts/allbooks.js" defer></script>
+		<script src="../static/scripts/search.js" defer></script>
 		<script src="../static/scripts/updatereviews.js" defer></script>
 		<script src="../static/scripts/viewreviews.js" defer></script>
 		<script src="../static/scripts/review.js" defer></script>
@@ -29,6 +30,9 @@
 			</div>
 			<input id="search-input" type="search" name="search-input" placeholder="search entry">
 			<button id="search-btn">Search</button>
+		</div>
+		<div class="chat-link">
+			<a href="{{ url_for('chat.chat', user_id=user_id) }}">Join the Chat</a>
 		</div>
 		<ul class="books" data-user-id="{{ user_id }}">
 		</ul>
