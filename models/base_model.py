@@ -13,13 +13,14 @@ Base = declarative_base()
 
 class BaseModel:
     """ Base class representation """
+    # inherited properties
     id = Column(String(60), primary_key=True, nullable=False)
     created_at = Column(DateTime, default=datetime.utcnow(), nullable=False)
     updated_at = Column(DateTime, default=datetime.utcnow(), nullable=False)
 
     def __init__(self, *args, **kwargs):
         """ class initialization """
-        s = '%Y-%m-%dT%H:%M:%S.%f'
+        s = '%Y-%m-%dT%H:%M:%S.%f' # altering or adding to properties
         if kwargs:
             for key, value in kwargs.items():
                 if key != '__class__':
@@ -37,7 +38,7 @@ class BaseModel:
             self.created_at = datetime.utcnow()
             self.updated_at = self.created_at
 
-    def __str__(self):
+    def __str__(self): # describing user's own string method
         """ str magic method representation """
         class_name = self.__class__.__name__
         identity = self.id
@@ -45,11 +46,11 @@ class BaseModel:
 
     def save(self):
         """ saves and updates updated_at attribute to current time """
-        self.udated_at = datetime.utcnow()
+        self.udated_at = datetime.utcnow() # updating updated_at if new instance
         models.storage.new(self)
         models.storage.save()
 
-    def to_dict(self):
+    def to_dict(self): # first step in deserialization
         """ returns altered dictionary of an instance """
         s = '%Y-%m-%dT%H:%M:%S.%f'
         dictionary = self.__dict__.copy()
@@ -60,7 +61,7 @@ class BaseModel:
         if 'updated_at' in dictionary:
             dictionary['updated_at'] = dictionary['updated_at'].strftime(s)
         if "_sa_instance_state" in dictionary:
-            del dictionary["_sa_instance_state"]
+            del dictionary["_sa_instance_state"] # necessary to delete it
         return dictionary
 
     def delete(self):
