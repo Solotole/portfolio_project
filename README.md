@@ -13,6 +13,6 @@ USAGE:
 	2.BRRS_MYSQL_USER=brrs_dev BRRS_MYSQL_PWD=Brrs_dev_pwd123! BRRS_MYSQL_HOST=localhost BRRS_MYSQL_DB=brrs_dev_db BRRS_TYPE_STORAGE=db BRRS_API_HOST=0.0.0.0 BRRS_API_PORT=5000 python3 -m web_dynamic.auth
 Contributing:Only one contributor to this project.
 Related projects: Flask Bookstore, Goodreads 
-Licensing: 
+Licensing: This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details
 ![Project Logo](readme.png)
 screenshot showing the chat room functionality where users can hangout
