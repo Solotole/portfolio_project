@@ -37,7 +37,7 @@ $(document).ready(function () {
       };
       updateReview(reviewId, userId, updatedReview);
     } else {
-      alert('Inpu required!');
+      alert('Input required!');
     }
   });
 });
