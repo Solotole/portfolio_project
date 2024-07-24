@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    // acquiring user's input
     const userId = $('div.chat-window').data('user-id');
     
     // Function to fetch messages
@@ -26,7 +27,7 @@ $(document).ready(function () {
     // Send message
     $('#send-button').on('click', function() {
         const message = $('#chat-input').val();
-
+        // checking for user input
         if (!message) {
             alert('Please enter a message');
             return;
