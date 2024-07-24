@@ -20,7 +20,8 @@ class BaseModel:
 
     def __init__(self, *args, **kwargs):
         """ class initialization """
-        s = '%Y-%m-%dT%H:%M:%S.%f' # altering or adding to properties
+        # altering or adding to propertie
+        s = '%Y-%m-%dT%H:%M:%S.%f'
         if kwargs:
             for key, value in kwargs.items():
                 if key != '__class__':
@@ -38,19 +39,21 @@ class BaseModel:
             self.created_at = datetime.utcnow()
             self.updated_at = self.created_at
 
-    def __str__(self): # describing user's own string method
+    def __str__(self):
         """ str magic method representation """
+        # describing user's own string method
         class_name = self.__class__.__name__
         identity = self.id
         return '[{}]--[{}]  {}'.format(class_name, identity, self.__dict__)
 
     def save(self):
         """ saves and updates updated_at attribute to current time """
-        self.udated_at = datetime.utcnow() # updating updated_at if new instance
+        # updating updated_at if new instance
+        self.udated_at = datetime.utcnow()
         models.storage.new(self)
         models.storage.save()
 
-    def to_dict(self): # first step in deserialization
+    def to_dict(self):  # first step in deserialization
         """ returns altered dictionary of an instance """
         s = '%Y-%m-%dT%H:%M:%S.%f'
         dictionary = self.__dict__.copy()
@@ -61,7 +64,8 @@ class BaseModel:
         if 'updated_at' in dictionary:
             dictionary['updated_at'] = dictionary['updated_at'].strftime(s)
         if "_sa_instance_state" in dictionary:
-            del dictionary["_sa_instance_state"] # necessary to delete it
+            # necessary to delete it
+            del dictionary["_sa_instance_state"]
         return dictionary
 
     def delete(self):
