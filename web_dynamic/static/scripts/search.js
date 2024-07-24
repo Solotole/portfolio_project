@@ -25,6 +25,7 @@ $(document).ready(function() {
             return;
         }
 
+        // check if criteria entered is as expected
         if (criteria === "genre") {
             url = `http://127.0.0.1:5001/api/v1/books/genre/${term}`;
         } else if (criteria === "author") {
@@ -48,6 +49,7 @@ $(document).ready(function() {
                     $('ul.books').append(searchedBooks);
                 });
             },
+            // error addressing
             error: function(xhr, status, error) {
                 console.error('Error fetching books:', status, error);
             }
