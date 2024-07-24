@@ -93,7 +93,6 @@ class DBStorage:
         """ Retrieve all books a user has read """
         read_books = []
         all_user_books = self.all(UserBook)
-        print(all_user_books)
         all_books = self.all(Book).values()
         for user_book in all_user_books.values():
             for book in all_books:

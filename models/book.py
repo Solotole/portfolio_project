@@ -12,7 +12,8 @@ class Book(BaseModel, Base):
     name = Column(String(60), nullable=False)
     genre = Column(String(60), nullable=False)
     author = Column(String(60), nullable=False)
-
+    download_link = Column(String(255), nullable=True)
+    
     reviews = relationship('Review', back_populates='book',
                            cascade="all, delete, delete-orphan")
 

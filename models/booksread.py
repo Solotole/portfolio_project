@@ -1,5 +1,5 @@
 #!/usr/bin/pyhton3
-""" module to represent books read by the user """
+""" module to represent table books read by the user """
 from models.base_model import BaseModel, Base
 from sqlalchemy.orm import relationship
 from sqlalchemy import Column, String, ForeignKey
