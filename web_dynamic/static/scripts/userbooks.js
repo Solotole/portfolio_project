@@ -1,7 +1,9 @@
 $(document).ready(function() {
     $('ul.books').on('click', '.mark-read', function() {
+        // accessing book's id
         const bookId = $(this).data('id');
         console.log(bookId);
+        // Accessing user's id
         const userId = $('ul.books').data('user-id');
         const value = {
             book_id: bookId
