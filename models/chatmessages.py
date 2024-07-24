@@ -2,7 +2,9 @@
 from sqlalchemy import Column, String, Text, ForeignKey
 from models.base_model import BaseModel, Base
 
-class ChatMessage(BaseModel, Base): # user's chat messages storage class
+
+# user's chat messages storage class
+class ChatMessage(BaseModel, Base):
     __tablename__ = 'chat_messages'
 
     # user's unique id
