@@ -36,6 +36,8 @@ $(document).ready(function () {
         text: newComment
       };
       updateReview(reviewId, userId, updatedReview);
+    } else {
+      alert('Inpu required!');
     }
   });
 });
