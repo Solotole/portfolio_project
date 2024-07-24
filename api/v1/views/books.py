@@ -21,7 +21,12 @@ def retrieve_books():
 
 @app_views.route('/books/<book_id>', methods=['GET'], strict_slashes=False)
 def book_id_retrieval(book_id):
-    """ retrieve a book based on reviews's id """
+    """ retrieve a book based on reviews's id
+        Args:
+            book_id (sting): book's id passed
+        Return:
+            return a list of book data
+    """
     all_reviews = storage.all(Review)
     all_book = []
     # looping over all reviews dictionaries
@@ -33,7 +38,12 @@ def book_id_retrieval(book_id):
 
 @app_views.route('/books/genre/<term>', methods=['GET'], strict_slashes=False)
 def genre_book_search(term):
-    """ searching and returning book acoording to passed genre identity """
+    """ searching and returning book acoording to passed genre identity
+        Args:
+            term (string): term entered by user as search input
+        Return:
+            returns a list of deserialized book data
+    """
     all_books = storage.all(Book)
     book = []
     if all_books:
@@ -47,7 +57,12 @@ def genre_book_search(term):
 
 @app_views.route('/books/author/<term>', methods=['GET'], strict_slashes=False)
 def author_book_search(term):
-    """ searching for books according to author name """
+    """ searching for books according to author name
+        Args:
+            term (String): author term entered by user
+        Return:
+            returns a list of deserialized book data
+    """
     all_books = storage.all(Book)
     book = []
     if all_books:
@@ -61,7 +76,12 @@ def author_book_search(term):
 
 @app_views.route('/books/name/<term>', methods=['GET'], strict_slashes=False)
 def name_book_search(term):
-    """ searching for books according to book name """
+    """ searching for books according to book name
+    Args:
+        term (String): book title term entered by user as search input
+    Return:
+        returns a list of deserialized book data
+    """
     all_books = storage.all(Book)
     book = []
     if all_books:
@@ -75,6 +95,12 @@ def name_book_search(term):
 @app_views.route('/books/download/<book_id>', methods=['GET'],
                  strict_slashes=False)
 def download_file(book_id):
+    """ API method responsible for downloading book from server
+        Args:
+            book_id: book id of book to download
+        Return:
+            returns a downloaded html book in the browser
+    """
     # Defining the path to the directory where files are stored
     book = storage.get(Book, book_id)
     if not book:
