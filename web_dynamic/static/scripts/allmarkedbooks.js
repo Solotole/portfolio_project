@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    // accessing user id
     const userId = $('ul.read-books-list').data('user-id');
 
     $.ajax({
@@ -7,7 +8,7 @@ $(document).ready(function() {
         contentType: 'application/json',
         success: function(data) {
             const readBooksList = $('ul.read-books-list');
-
+            // looping over the data returned
             data.forEach((book) => {
                 const bookItem = `
                     <li>
@@ -21,6 +22,7 @@ $(document).ready(function() {
                 readBooksList.append(bookItem);
             });
         },
+        // addressing an error
         error: function(xhr, status, error) {
             console.error('Error fetching read books:', status, error);
         }
