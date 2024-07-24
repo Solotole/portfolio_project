@@ -1,4 +1,5 @@
 function generateBookHtml(books) {
+  // returns html block to append
   const downloadUrl = `http://127.0.0.1:5001/api/v1/books/download/${books.id}`;
     return `
         <li>
@@ -26,11 +27,13 @@ function generateBookHtml(books) {
       dataType: 'json',
       success: (data) => {
         console.log('Data received:', data);
+        // loop over the data returned by API
         data.forEach((books) => {
           const renderedHtml = generateBookHtml(books);
           $('ul.books').append(renderedHtml);
         });
       },
+      // error addressing
       error: (xhr, status, error) => {
         console.error('Error fetching data:', status, error);
       }
