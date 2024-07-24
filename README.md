@@ -15,3 +15,4 @@ Contributing:Only one contributor to this project.
 Related projects: Flask Bookstore, Goodreads 
 Licensing: 
 ![Project Logo](readme.png)
+screenshot showing the chat room functionality where users can hangout
