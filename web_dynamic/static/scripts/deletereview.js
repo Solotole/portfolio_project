@@ -4,7 +4,7 @@ function deleteReview(reviewId, userId) {
       url: `http://127.0.0.1:5001/api/v1/reviews/${reviewId}/${userId}`,
       type: 'DELETE',
       success: function(result) {
-        // Handle success (e.g., remove the deleted review from the UI)
+        // Handle success e.g.remove the deleted review from the UI
         console.log('Review deleted:', result);
         $(`li[data-id=${reviewId}]`).remove();
       },
