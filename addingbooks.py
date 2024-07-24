@@ -11,6 +11,7 @@ from models.book import Book
 storage = DBStorage()
 storage.reload()
 
+
 def add_book_to_db(name, author, genre, download_link):
     """ Adds a book to the database """
     new_book = Book(
@@ -22,6 +23,7 @@ def add_book_to_db(name, author, genre, download_link):
     storage.new(new_book)
     storage.save()
     return new_book
+
 
 def extract_genre(subjects):
     """ Extracts the last word after the last '-' in the genre string """
@@ -36,13 +38,12 @@ def extract_genre(subjects):
         genre = 'Unknown Genre'
     return genre
 
+
 def fetch_and_store_book():
     """ Fetches book metadata and stores it in the database """
     base_url = 'http://gutendex.com/books/'
     # Defining the parameters to limit the results to 10 books
-    params = {
-    'limit': 10
-    }
+    params = {'limit': 10}
     # Sending a GET request to the API
     response = requests.get(base_url, params=params)
     book_data = response.json()
@@ -57,6 +58,7 @@ def fetch_and_store_book():
             dict_object = add_book_to_db(name, author, genre, download_link)
             download_book(books['id'], download_link, dict_object)
 
+
 def download_book(book_id, download_link, dict_object):
     """ Downloads the book and saves it to a specified directory """
     response = requests.get(download_link)
@@ -68,9 +70,9 @@ def download_book(book_id, download_link, dict_object):
 
     with open(file_path, 'wb') as file:
         file.write(response.content)
-    
     print(f"Downloaded {book_id} to {file_path}")
     return file_path
+
 
 if __name__ == '__main__':
     fetch_and_store_book()
