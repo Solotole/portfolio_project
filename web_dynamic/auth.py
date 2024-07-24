@@ -121,15 +121,15 @@ def register():
             instance.save()
             msg = 'You have successfully registered!'
     elif request.method == 'POST':
-        # Form is empty... (no POST data)
+        # Form is empty...
         msg = 'Please fill out the form!'
-    # Show registration form with message (if any)
+    # Show registration form with message
     return render_template('register.html', msg=msg)
 
 
 @app.route('/login/home')
 def home():
-    # Check if the user is logged in
+    # Checking if the user is logged in
     if 'loggedin' in session:
         # User is loggedin show them the home page
         first_name = session['first_name']
@@ -157,6 +157,7 @@ def profile():
 @app.route('/brrs', strict_slashes=False)
 def brrs():
     """ retriveing all books and rendering html """
+    # if loggrd in condition
     if 'loggedin' in session:
         books = {}
         cache_id = uuid4()
@@ -166,18 +167,21 @@ def brrs():
                                 books=books,
                                 cache_id=cache_id,
                                 user_id=session['id'])
+    # if not login then return to login
     return redirect(url_for('login'))
 
 
 @app.route('/recommendations', strict_slashes=False)
 def recommendations():
     """ recommendations according to user's reviews and rating """
+    # if user is logged in codition
     if 'loggedin' in session:
         cache_id = uuid4()
         # render html page with books data and user's id
         return render_template('2-index.html',
                                 cache_id=cache_id,
                                 user_id=session['id'])
+    # if not the return to login
     return redirect(url_for('login'))
 
 
