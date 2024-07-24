@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ Module responsinle for accessing books data from
     Project Gutenberg API, storing in MySQL database
-    , and dowloading and string in a directory
+    , and dowloading and storing in a directory
 """
 import requests
 import os
@@ -43,9 +43,8 @@ def fetch_and_store_book():
     params = {
     'limit': 10
     }
-    # Send a GET request to the API
+    # Sending a GET request to the API
     response = requests.get(base_url, params=params)
-    # response = requests.get(url, params=params)
     book_data = response.json()
     for books in book_data['results']:
         name = books.get('title', 'Unknown Title')
@@ -64,7 +63,7 @@ def download_book(book_id, download_link, dict_object):
     response.raise_for_status()  # Raise an error for bad status codes
     file_path = f"files/{dict_object.id}.html"
 
-    # Ensure the directory exists
+    # Ensuring the directory exists
     os.makedirs(os.path.dirname(file_path), exist_ok=True)
 
     with open(file_path, 'wb') as file:
